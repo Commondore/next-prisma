@@ -4,6 +4,6 @@ export interface NavbarItem {
 }
 
 export const navbarItems: NavbarItem[] = [
-  { label: "Новости", href: "/news" },
   { label: "Категории", href: "/categories" },
+  { label: "Новости", href: "/news" },
 ];
