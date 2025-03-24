@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ReactNode } from "react";
+import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Нормальный сайт",
@@ -20,7 +21,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <div className="relative flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+            </div>
           </ThemeProvider>
         </body>
       </html>
