@@ -2,6 +2,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Logo } from "@/components/logo";
 import { navbarItems } from "./data";
 import { NavLink } from "@/components/ui/nav-link";
+import { AuthButtons } from "@/components/auth-buttons";
 
 export const Navbar = () => {
   return (
@@ -15,7 +16,10 @@ export const Navbar = () => {
             </NavLink>
           ))}
         </nav>
-        <ModeToggle />
+        <div className="flex items-center gap-4">
+          <AuthButtons />
+          <ModeToggle />
+        </div>
       </div>
     </header>
   );
