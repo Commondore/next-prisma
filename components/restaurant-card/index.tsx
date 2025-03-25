@@ -10,7 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
-import { Restaurant } from "@/interfaces/restaurant";
+import { RestaurantCardProps } from "@/interfaces/restaurant";
 
 export const RestaurantCard = ({
   title,
@@ -19,7 +19,7 @@ export const RestaurantCard = ({
   price,
   category,
   href,
-}: Restaurant) => {
+}: RestaurantCardProps) => {
   return (
     <Card className="overflow-hidden">
       <div className="relative h-56 w-full -mt-6">
