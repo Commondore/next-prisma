@@ -1,7 +1,7 @@
 "use server";
 
 import { compare, hash } from "bcryptjs";
-import { sign } from "jsonwebtoken";
+import { sign, verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 
 export async function hashPassword(password: string) {
@@ -27,4 +27,18 @@ export async function setAuthCookie(token: string) {
 
 export async function removeAuthCookie() {
   (await cookies()).delete("auth-token");
+}
+
+export async function isAuthenticated() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("auth-token");
+
+  if (!token) return false;
+
+  try {
+    verify(token.value, process.env.JWT_SECRET!);
+    return true;
+  } catch {
+    return false;
+  }
 }
